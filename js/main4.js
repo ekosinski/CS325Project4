@@ -63,35 +63,61 @@ window.onload = function() {
     var catHead;
 
     var counter = 0;
-    
-    function create() {
+    var cursors;
 
-        //  We're going to be using physics, so enable the Arcade Physics system
-        game.physics.startSystem(Phaser.Physics.ARCADE);
-        background = game.add.tileSprite(0,0,800,600,'background');
-        /*mario = game.add.audio('mario');
-        mario.loop = true;
-        mario.play();*/
-        
+
+function create() {
+
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    //  Enable the QuadTree
+    game.physics.arcade.skipQuadTree = false;
+
+    catHead = game.add.group();
+    catHead.enableBody = true;
+
+    for (var i = 0; i < 50; i++)
+    {
+        var s = catHead.create(game.world.randomX, game.world.randomY, 'baddie');
+        s.body.collideWorldBounds = true;
+        s.body.bounce.set(1);
+        s.body.velocity.setTo(10 + Math.random() * 40, 10 + Math.random() * 40);
     }
 
-    function update() {
-		
+    humanHead = game.add.sprite(400, 400, 'humanHead');
+    humanHead.scale.x = 0.5;
+    humanHead.scale.y = 0.5;
 
-        /*if (counter == 0) {
-                var Q = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q1');
-                var A1 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A11');
-                var A2 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A12');
-                var A3 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A13');
-                A1.inputEnabled = true;
-                A2.inputEnabled = true;
-                A3.inputEnabled = true;
-                A1.events.onInputDown.add(listenerA11, this);
-                A2.events.onInputDown.add(listenerA12, this);
-                A3.events.onInputDown.add(listenerA13, this);
-            }*/
-      
+    game.physics.enable(humanHead, Phaser.Physics.ARCADE);
 
+    humanHead.body.collideWorldBounds = true;
+    humanHead.body.bounce.set(1);
 
-  
+    cursors = game.input.keyboard.createCursorKeys();
+
+}
+
+function update() {
+
+    game.physics.arcade.collide(humanHead, catHead);
+
+    if (cursors.left.isDown)
+    {
+        humanHead.body.velocity.x -= 4;
+    }
+    else if (cursors.right.isDown)
+    {
+        humanHead.body.velocity.x += 4;
+    }
+
+    if (cursors.up.isDown)
+    {
+        humanHead.body.velocity.y -= 4;
+    }
+    else if (cursors.down.isDown)
+    {
+        humanHead.body.velocity.y += 4;
+    }
+
+}
 };
