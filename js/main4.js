@@ -78,7 +78,7 @@ function create() {
 
     for (var i = 0; i < 50; i++)
     {
-        var s = catHead.create(game.world.randomX, game.world.randomY, 'baddie');
+        var s = catHead.create(game.world.randomX, game.world.randomY, 'catHead');
         s.body.collideWorldBounds = true;
         s.body.bounce.set(1);
         s.body.velocity.setTo(10 + Math.random() * 40, 10 + Math.random() * 40);
