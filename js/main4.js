@@ -21,22 +21,23 @@ window.onload = function() {
         game.load.image( 'background', 'assets/green.png' );
         //game.load.audio( 'bodyDry', 'assets/01 -Before my body is dry.mp3');
         //game.load.audio('mario', 'assets/Mario_Slide.wav');
-        game.load.image('girrafeHead','assets/girrafe_head.png');
-        game.load.image('girrafeBody','assets/girrafe_body.jpg');
-        game.load.image('girrafeLeftLeg','assets/girrafe_left_leg.png');
-        game.load.image('girrafeRightLeg','assets/girrafe_right.png');
-        game.load.image('gorillaHead','assets/gorilla_head.jpg');
-        game.load.image('gorillaLeftArm','assets/gorilla_left_arm.jpg');
-        game.load.image('gorillaRightArm','assets/gorilla_right_arm.jpg');
-        game.load.image('gorillaLeftLeg','assets/gorilla_left_leg.jpg');
-        game.load.image('gorillaRightLeg','assets/gorilla_right_leg.jpg');
-        game.load.image('gorillaBody','assets/gorilla_body.jpg');
+        //game.load.image('girrafeHead','assets/girrafe_head.png');
+        //game.load.image('girrafeBody','assets/girrafe_body.jpg');
+        //game.load.image('girrafeLeftLeg','assets/girrafe_left_leg.png');
+        //game.load.image('girrafeRightLeg','assets/girrafe_right.png');
+       // game.load.image('gorillaHead','assets/gorilla_head.jpg');
+        //game.load.image('gorillaLeftArm','assets/gorilla_left_arm.jpg');
+        //game.load.image('gorillaRightArm','assets/gorilla_right_arm.jpg');
+        //game.load.image('gorillaLeftLeg','assets/gorilla_left_leg.jpg');
+        //game.load.image('gorillaRightLeg','assets/gorilla_right_leg.jpg');
+        //game.load.image('gorillaBody','assets/gorilla_body.jpg');
         game.load.image('humanHead','assets/human_head.jpg');
-        game.load.image('humanRightArm','assets/right_arm.jpg');
-        game.load.image('humanLeftArm','assets/left_arm.jpg');
-        game.load.image('humanRightLeg','assets/right_leg');
-        game.load.image('humanLeftLeg','assets/left_leg');
-        game.load.image('catHead','assets/cat_head');
+        //game.load.image('humanRightArm','assets/right_arm.jpg');
+        //game.load.image('humanLeftArm','assets/left_arm.jpg');
+        //game.load.image('humanRightLeg','assets/right_leg');
+        //game.load.image('humanLeftLeg','assets/left_leg');
+        game.load.image('catHead','assets/cat_head.png');
+
     }
     
     var background1;
@@ -75,6 +76,8 @@ function create() {
 
     catHead = game.add.group();
     catHead.enableBody = true;
+    catHead.scale.x = 0.05;
+    catHead.scale.y = 0.05;
 
     for (var i = 0; i < 50; i++)
     {
@@ -85,8 +88,8 @@ function create() {
     }
 
     humanHead = game.add.sprite(400, 400, 'humanHead');
-    humanHead.scale.x = 0.5;
-    humanHead.scale.y = 0.5;
+    humanHead.scale.x = 0.25;
+    humanHead.scale.y = 0.25;
 
     game.physics.enable(humanHead, Phaser.Physics.ARCADE);
 
