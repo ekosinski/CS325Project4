@@ -76,8 +76,8 @@ function create() {
 
     catHead = game.add.group();
     catHead.enableBody = true;
-    catHead.scale.x = 0.05;
-    catHead.scale.y = 0.05;
+    //catHead.scale.x = 0.05;
+    //catHead.scale.y = 0.05;
 
     for (var i = 0; i < 50; i++)
     {
